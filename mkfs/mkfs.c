@@ -152,6 +152,8 @@ main(int argc, char *argv[])
 
     inum = ialloc(T_FILE);
 
+    printf("name: %s\n", shortname);
+
     bzero(&de, sizeof(de));
     de.inum = xshort(inum);
     strncpy(de.name, shortname, DIRSIZ);
@@ -293,6 +295,9 @@ iappend(uint inum, void *xp, int n)
       x = xint(indirect[fbn-NDIRECT]);
     }
     n1 = min(n, (fbn + 1) * BSIZE - off);
+
+    printf("iappend x: %d %x\n", x, x);
+
     rsect(x, buf);
     bcopy(p, buf + off - (fbn * BSIZE), n1);
     wsect(x, buf);

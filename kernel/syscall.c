@@ -137,7 +137,9 @@ syscall(void)
 
   num = p->tf->a7;
   if(num > 0 && num < NELEM(syscalls) && syscalls[num]) {
+    // printf("syscall %p!\n", num);
     p->tf->a0 = syscalls[num]();
+    // printf("result: %p\n", p->tf->a0);
   } else {
     printf("%d %s: unknown sys call %d\n",
             p->pid, p->name, num);

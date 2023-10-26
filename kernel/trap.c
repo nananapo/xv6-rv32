@@ -179,6 +179,8 @@ devintr()
 {
   uint32 scause = r_scause();
 
+  // printf("devintr scause : %p\n", scause);
+
   if((scause & 0x80000000L) &&
      (scause & 0xff) == 9){
     // this is a supervisor external interrupt, via PLIC.

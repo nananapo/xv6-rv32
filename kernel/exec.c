@@ -40,10 +40,20 @@ exec(char *path, char **argv)
 
   // Load program into memory.
 
+  // printf("phnum: %p\n", elf.phnum);
+  // printf("phoff: %p\n", elf.phoff);
 
   for(i=0, off=elf.phoff; i<elf.phnum; i++, off+=sizeof(ph)){
     if(readi(ip, 0, (uint32)&ph, off, sizeof(ph)) != sizeof(ph))
       goto bad;
+
+    // printf("ph.type   : %p\n", ph.type);
+    // printf("ph.off    : %p\n", ph.off);
+    // printf("ph.vaddr  : %p\n", ph.vaddr);
+    // printf("ph.paddr  : %p\n", ph.paddr);
+    // printf("ph.filesz : %p\n", ph.filesz);
+    // printf("ph.memsz  : %p\n", ph.memsz);
+    // printf("ph.align  : %p\n", ph.align);
 
     if(ph.type != ELF_PROG_LOAD)
       continue;

@@ -17,18 +17,28 @@ main()
     printf("xv6 kernel is booting\n");
     printf("\n");
     kinit();         // physical page allocator
+    // printf("a");
     kvminit();       // create kernel page table
+    // printf("b");
     kvminithart();   // turn on paging
+    // printf("c");
     procinit();      // process table
+    // printf("d");
     trapinit();      // trap vectors
+    // printf("e");
     trapinithart();  // install kernel trap vector
     plicinit();      // set up interrupt controller
     plicinithart();  // ask PLIC for device interrupts
     binit();         // buffer cache
+    // printf("g");
     iinit();         // inode cache
+    // printf("h");
     fileinit();      // file table
+    // printf("i");
     virtio_disk_init(); // emulated hard disk
+    // printf("j");
     userinit();      // first user process
+    // printf("k");
     __sync_synchronize();
     started = 1;
   } else {
