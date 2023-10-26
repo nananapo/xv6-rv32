@@ -1,0 +1,13 @@
+*.S
+*.o
+*.asm
+*.d
+*.sym
+*.out
+user/_*
+*.bin
+*.img
+*.aligned
+kernel/kernel
+user/initcode
+mkfs/mkfs
