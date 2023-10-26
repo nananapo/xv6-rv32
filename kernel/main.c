@@ -27,8 +27,9 @@ main()
     trapinit();      // trap vectors
     // printf("e");
     trapinithart();  // install kernel trap vector
-    plicinit();      // set up interrupt controller
-    plicinithart();  // ask PLIC for device interrupts
+    // printf("f");
+    // plicinit();      // set up interrupt controller
+    // plicinithart();  // ask PLIC for device interrupts
     binit();         // buffer cache
     // printf("g");
     iinit();         // inode cache
