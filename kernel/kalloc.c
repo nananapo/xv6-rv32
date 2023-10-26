@@ -53,7 +53,8 @@ kfree(void *pa)
     panic("kfree");
 
   // Fill with junk to catch dangling refs.
-  memset(pa, 1, PGSIZE);
+  // TODO 遅すぎ
+  // memset(pa, 1, PGSIZE);
 
   r = (struct run*)pa;
 
