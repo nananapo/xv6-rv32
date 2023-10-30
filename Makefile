@@ -75,7 +75,7 @@ endif
 
 LDFLAGS = -z max-page-size=4096
 
-BIN2HEX = python3 ../../test/bin2hex.py
+BIN2HEX = python3 ../test/bin2hex.py
 
 all: clean $K/kernel fs.img
 
